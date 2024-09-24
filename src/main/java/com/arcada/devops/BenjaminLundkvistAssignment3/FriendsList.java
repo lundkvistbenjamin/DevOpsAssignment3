@@ -4,25 +4,23 @@ public class FriendsList {
 
     public static String[] getFriends(String name) {
         // Friends Lists
-        String[] selmaFriends = {"Patty", "Moe", "Apu", "Troy", "Lionel", "Comic"};
-        String[] hilmaFriends = {"Krusty", "Bob", "Lenny", "Carl", "Rainier", "Kent"};
-        String[] homerFriends = {"Marge", "Barney", "Lenny", "Carl", "Moe", "Ned", "Abe", "Waylon"};
-        String[] bartFriends = {"Milhouse", "Nelson", "Ralph", "Jimbo", "Kearney", "Dolph", "Martin", "Shauna", "Jessica"};
-        String[] margeFriends = {"Homer", "Patty", "Selma", "Apu", "Maude", "Jacqueline", "Helen", "Luann", "Edna", "Ruth", "Ned", "Reverend", "Judge", "Cookie", "Agnes"};
+        String[] names = {"Selma", "Hilma", "Homer", "Bart", "Marge"};
+        String[][] friends = {
+            {"Patty", "Moe", "Apu", "Troy", "Lionel", "Comic"}, // Selma's friends
+            {"Krusty", "Bob", "Lenny", "Carl", "Rainier", "Kent"}, // Hilma's friends
+            {"Marge", "Barney", "Lenny", "Carl", "Moe", "Ned", "Abe", "Waylon"}, // Homer's friends
+            {"Milhouse", "Nelson", "Ralph", "Jimbo", "Kearney", "Dolph", "Martin", "Shauna", "Jessica"}, // Bart's friends
+            {"Homer", "Patty", "Selma", "Apu", "Maude", "Jacqueline", "Helen", "Luann", "Edna", "Ruth", "Ned", "Reverend", "Judge", "Cookie", "Agnes"} // Marge's friends
+        };
 
-        // Check for name and return friends list
-        if (name.equalsIgnoreCase("Selma")) {
-            return selmaFriends;
-        } else if (name.equalsIgnoreCase("Hilma")) {
-            return hilmaFriends;
-        } else if (name.equalsIgnoreCase("Homer")) {
-            return homerFriends;
-        } else if (name.equalsIgnoreCase("Bart")) {
-            return bartFriends;
-        } else if (name.equalsIgnoreCase("Marge")) {
-            return margeFriends;
-        } else {
-            return new String[0]; // Empty array for invalid names
+        // Loop through names and see if there is a match
+        for (int i = 0; i < names.length; i++) {
+            if (name.equalsIgnoreCase(names[i])) {
+                return friends[i];
+            }
         }
+
+        // If there is no match return an empty array
+        return new String[0];
     }
 }
